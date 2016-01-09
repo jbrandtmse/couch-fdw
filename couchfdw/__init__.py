@@ -97,7 +97,7 @@ class CouchDBForeignDataWrapper(ForeignDataWrapper):
                         endkey[last_used_index] = qual.value
                     # deal with other parameters
                     if qual.field_name.startswith('p_'):
-                        params[qual.field_name.split('_')[1]] = eval(qual.value) if qual.value != '' else qual.value
+                        params[qual.field_name[2:]] = eval(qual.value) if qual.value != '' else qual.value
 
                 # if provided a single key
                 if last_used_index != -1:
